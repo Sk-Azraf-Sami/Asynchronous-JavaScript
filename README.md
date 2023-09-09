@@ -359,3 +359,22 @@ Promise 2 resolved
 After 'promise1' is resolved, 'promise2' will be resolved after 2 seconds. <br>
 But we can solve this problem by concurrently run these promises.
 
+```javascript
+const promise1 = Promise.resolve(`Promise 1 resolved`);
+const promise2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(`Promise 2 resolved`)
+    }, 2000);
+});
+
+// creating array of two promises
+Promise.all([promise1,promise2]).then((res) => {
+    console.log(res)
+})
+
+/*
+Output: 
+[ 'Promise 1 resolved', 'Promise 2 resolved' ]
+*/
+```
+After 2 seconds, both promise1 and promise2 run together. 
