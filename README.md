@@ -460,3 +460,50 @@ Promise { 'Hello' }
 ```
 `await` can't use in normal function. <br>
 Always use in `async` function. 
+
+```javascrript
+const hasMeeting = false;
+const meeting = new Promise((resolve, reject) => {
+    if(hasMeeting == false){
+        const meetingDetails = {
+            name: "Project Meeting",
+            location: "Google Meeet",
+            time: "10:00 PM"
+        };
+        
+        resolve(meetingDetails);
+    }
+    
+    else{
+        reject(new Error("Meeting already scheduled!!"));
+    }
+});
+
+// 2nd promise 
+const addToCalendar = (meetingDetails) => {
+     const calendar = `${meetingDetails.name} is scheduled on ${meetingDetails.location} at ${meetingDetails.time}`;
+    return Promise.resolve(calendar)
+}
+
+// we can handle multiple then by using single catch 
+// don't need to use .then .catch
+async function myMeeting(){
+    try{
+      const meetingInfo = await meeting;
+      const calendarInfo = await addToCalendar(meetingInfo);
+      console.log(calendarInfo);
+    }
+    catch(error) {
+        console.log("Something is wrong here!", error.message);
+    }
+}
+
+myMeeting();
+
+console.log("Hello");
+/*
+Hello
+Project Meeting is scheduled on Google Meeet at 10:00 PM
+*/
+
+```
