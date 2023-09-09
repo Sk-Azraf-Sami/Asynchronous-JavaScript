@@ -459,7 +459,7 @@ Promise { 'Hello' }
 */
 ```
 `await` can't use in normal function. <br>
-Always use in `async` function. 
+Always `await` use in `async` function. 
 
 ```javascript
 const hasMeeting = false;
