@@ -182,4 +182,97 @@ Completed order for customer 1
 */
 ```
 ### Promises: 
-By using promise, callback function become more readable and we can solve the 'callback hell' problem 
+By using promise, callback function become more readable and we can solve the 'callback hell' problem.
+```javascript
+const hasMeeting = false;
+const meeting = new Promise((resolve, reject) => {
+    if(hasMeeting == false){
+        const meetingDetails = {
+            name: "Project Meeting",
+            location: "Google Meeet",
+            time: "10:00 PM"
+        };
+        
+        resolve(meetingDetails);
+    }
+    
+    else{
+        reject(new Error("Meeting already scheduled!!"));
+    }
+});
+
+meeting
+    .then((res) => {
+        // resolve data
+        console.log(JSON.stringify(res))
+    })
+    .catch((err) => {
+        //rejected data
+        console.log(err.message);
+    })
+
+/*
+Output (if hasMeeting=false): 
+{"name":"Project Meeting","location":"Google Meeet","time":"10:00 PM"}
+
+*****************************************************************
+
+Output (if hasMeeting=true: 
+Meeting already scheduled!!
+
+******************************************************************
+
+*/
+
+```
+
+In 'promise' callback function is used which holds two function 'resolve' and 'reject'. Now above code is more readable than direct using of 'callback' function.
+
+**Is it really asynchronous?**
+```javascript
+const hasMeeting = true;
+const meeting = new Promise((resolve, reject) => {
+    if(hasMeeting == false){
+        const meetingDetails = {
+            name: "Project Meeting",
+            location: "Google Meeet",
+            time: "10:00 PM"
+        };
+        
+        resolve(meetingDetails);
+    }
+    
+    else{
+        reject(new Error("Meeting already scheduled!!"));
+    }
+});
+
+meetinge 
+    .then((res) => {
+        // resolve data
+        console.log(JSON.stringify(res))
+    })
+    .catch((err) => {
+        //rejected data
+        console.log(err.message);
+    })
+
+console.log("Hello");
+/*
+Output (if hasMeeting=false): 
+Hello
+{"name":"Project Meeting","location":"Google Meeet","time":"10:00 PM"}
+
+*****************************************************************
+
+Output (if hasMeeting=true: 
+Hello
+Meeting already scheduled!!
+
+******************************************************************
+
+*/
+
+```
+We don't assign any delay to the 'promise' but first `Hello` is printed! Then the promise will be executed. 
+
