@@ -276,3 +276,59 @@ Meeting already scheduled!!
 ```
 We don't assign any delay to the 'promise' but first `Hello` is printed! Then the promise will be executed. 
 
+### Promise Chain: 
+```javascript
+const hasMeeting = false;
+const meeting = new Promise((resolve, reject) => {
+    if(hasMeeting == false){
+        const meetingDetails = {
+            name: "Project Meeting",
+            location: "Google Meeet",
+            time: "10:00 PM"
+        };
+        
+        resolve(meetingDetails);
+    }
+    
+    else{
+        reject(new Error("Meeting already scheduled!!"));
+    }
+});
+
+// 2nd promise 
+const addToCalendar = (meetingDetails) => {
+    return new Promise((resolve, reject) => {
+        const calendar = `${meetingDetails.name} is scheduled on ${meetingDetails.location} at ${meetingDetails.time}`;
+        resolve(calendar)
+    })
+}
+
+// there is no reject 
+// so we can create addToCalendar function like this also 
+/*const addToCalendar = (meetingDetails) => {
+     const calendar = `${meetingDetails.name} is scheduled on ${meetingDetails.location} at ${meetingDetails.time}`;
+    return Promise.resolve(calendar)
+}*/
+
+// we can handle multiple then by using single catch 
+meeting
+    .then(addToCalendar)
+    .then((res) => {
+        // resolve data
+        // now calendar in the resolve 
+        // so, resolve that means calendar will be printed
+        console.log(res)
+    })
+    .catch((err) => {
+        //rejected data
+        console.log(err.message);
+    })
+
+console.log("Hello");
+/*
+Hello
+Project Meeting is scheduled on Google Meeet at 10:00 PM
+*/
+
+```
+
