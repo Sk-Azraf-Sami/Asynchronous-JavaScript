@@ -137,6 +137,49 @@ Cooking completed
 Order processed for customer 1
 Completed order for customer 1
 */
-
-
 ```
+
+**Is this process really asynchronous?**
+```javascript
+const takeOrder = (customer,callback) => {
+    console.log(`Take order for ${customer}`);
+    callback(customer);
+};
+
+const processOrder = (customer,callback) => {
+    console.log(`Process order for ${customer}`);
+    setTimeout(() => {
+        console.log(`Cooking completed`);
+        console.log(`Order processed for ${customer}`);
+        callback(customer); 
+    }, 3000);
+};
+
+const completeOrder = (customer) => {
+    console.log(`Completed order for ${customer}`);
+};
+
+// call function 
+// takeOrder function call processOrder function 
+// processOrder function call completeOrder function 
+takeOrder('customer 1',(customer)=>{
+    processOrder(customer,(customer) => {
+        completeOrder(customer);
+    });
+}); 
+
+//This line will run middle of asynchronus execution 
+console.log('Hello'); 
+
+/*
+Output: 
+Take order for customer 1
+Process order for customer 1
+Hello
+Cooking completed
+Order processed for customer 1
+Completed order for customer 1
+*/
+```
+### Promises: 
+By using promise, callback function become more readable and we can solve the 'callback hell' problem 
