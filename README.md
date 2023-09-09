@@ -461,7 +461,7 @@ Promise { 'Hello' }
 `await` can't use in normal function. <br>
 Always use in `async` function. 
 
-```javascrript
+```javascript
 const hasMeeting = false;
 const meeting = new Promise((resolve, reject) => {
     if(hasMeeting == false){
