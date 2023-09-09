@@ -359,6 +359,8 @@ Promise 2 resolved
 After 'promise1' is resolved, 'promise2' will be resolved after 2 seconds. <br>
 But we can solve this problem by concurrently run these promises.
 
+**Promise.all**
+
 ```javascript
 const promise1 = Promise.resolve(`Promise 1 resolved`);
 const promise2 = new Promise((resolve, reject) => {
@@ -378,3 +380,81 @@ Output:
 */
 ```
 After 2 seconds, both promise1 and promise2 run together. 
+
+**Promise.race**
+```javascript
+const promise1 = Promise.resolve(`Promise 1 resolved`);
+const promise2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(`Promise 2 resolved`)
+    }, 2000);
+});
+
+// creating array of two promises
+// race between two promises
+// two promise will be start executing at the same time
+// one promise will be printed which win this race
+Promise.race([promise1,promise2]).then((res) => {
+    console.log(res)
+})
+
+/*
+Output: 
+Promise 1 resolved
+*/
+```
+**Another Example**
+
+```javascript
+const promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(`promise1 resolved`);
+    }, 5000);
+});
+
+const promise2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(`promise2 resolved`)
+    }, 2000);
+}); 
+
+Promise.race([promise1, promise2]).then((res) => {
+    console.log(res)
+})
+
+/*
+Output: 
+promise2 resolved
+*/
+```
+
+But way of `promise` call is not so much programming friendly. 
+
+### async-await 
+
+```javascript
+// this is synchronous function 
+function test(){
+    return `Hello`;
+}
+console.log(test()); 
+
+// make test() function asynchronous
+function test2(){
+    return Promise.resolve(`Hello`);
+}
+console.log(test2());
+
+// do the same thing by using 'async'
+async function test3(){
+    return `Hello`; 
+}
+console.log(test3());
+
+/*
+Output: 
+Hello
+Promise { 'Hello' }
+Promise { 'Hello' }
+*/
+```
