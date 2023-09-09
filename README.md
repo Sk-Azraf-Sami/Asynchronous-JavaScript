@@ -96,4 +96,47 @@ Here's the sequence of events:
 7. The event loop detects that the callback queue contains the "Cooking completed" callback, so it moves it to the call stack.
 8. "Cooking completed" is logged.
 
-This demonstrates how JavaScript's asynchronous behavior and the event loop allow non-blocking execution of code, like the delayed callback in `setTimeout`.
+This demonstrates how JavaScript's asynchronous behavior and the event loop allow non-blocking execution of code, like the delayed callback in `setTimeout.
+
+### Callback Function: 
+But for above solution there is a problem of workflow control. We can control the workflow of code by implementation of callback function.
+
+```javascript
+const takeOrder = (customer,callback) => {
+    console.log(`Take order for ${customer}`);
+    callback(customer);
+};
+
+const processOrder = (customer,callback) => {
+    console.log(`Process order for ${customer}`);
+    setTimeout(() => {
+        console.log(`Cooking completed`);
+        console.log(`Order processed for ${customer}`);
+        callback(customer); 
+    }, 3000);
+};
+
+const completeOrder = (customer) => {
+    console.log(`Completed order for ${customer}`);
+};
+
+// call function 
+// takeOrder function call processOrder function 
+// processOrder function call completeOrder function 
+takeOrder('customer 1',(customer)=>{
+    processOrder(customer,(customer) => {
+        completeOrder(customer);
+    });
+}); 
+
+/*
+Output: 
+Take order for customer 1
+Process order for customer 1
+Cooking completed
+Order processed for customer 1
+Completed order for customer 1
+*/
+
+
+```
