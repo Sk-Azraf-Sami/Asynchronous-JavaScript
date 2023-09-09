@@ -458,3 +458,5 @@ Promise { 'Hello' }
 Promise { 'Hello' }
 */
 ```
+`await` can't use in normal function. <br>
+Always use in `async` function. 
