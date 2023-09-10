@@ -3,7 +3,7 @@
 ## Table of Contents
 - [Example of Synchronous behaviour](#Example_of_Synchronous_behaviour)
 - [Solving above problem by using setTimeout() asynchronous function:](#Solving_above_problem_by_using_setTimeout()_asynchronous_function)
-- [Callback Function:](#Callback_Function)
+- [Callback Function](#Callback_Function)
 - [Promises:](#Promises) 
 - [Promise Chain:](#Promise_Chain)
 - [async-await](#async-await) 
