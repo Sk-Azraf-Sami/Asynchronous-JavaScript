@@ -1,16 +1,16 @@
 # Asynchronous-JavaScript
 
 ## Table of Contents
-- [Example of Synchronous behaviour](#Example_of_Synchronous_behaviour)
-- [Solving above problem by using setTimeout() asynchronous function:](#Solving_above_problem_by_using_setTimeout()_asynchronous_function)
-- [Callback Function](#Callback_Function)
+- [Example of Synchronous behaviour](#Example-of-Synchronous-behaviour)
+- [Solving above problem by using setTimeout() asynchronous function](#Solving-above-problem-by-using-setTimeout()-asynchronous-function)
+- [Callback Function](#Callback-Function)
 - [Promises](#Promises) 
-- [Promise Chain](#Promise_Chain)
+- [Promise Chain](#Promise-Chain)
 - [async-await](#async-await) 
 
 Javascript is a single thread language. It has synchronous blocking behaviour which makes it as a ugly language. But nowadays it becomes updated and now it has asynchronous behaviour. 
 
-### [Example of Synchronous behaviour](#Example_of_Synchronous_behaviour)
+### [Example of Synchronous behaviour](#Example-of-Synchronous-behaviour)
 ```javascript
 const processOrder = (customer) => {
     console.log(`Processing order for customer 1`);
@@ -35,7 +35,7 @@ Completed order for customer 1
 */
 ```
 
-### [Solving above problem by using setTimeout() asynchronous function:](#Solving_above_problem_by_using_setTimeout()_asynchronous_function)
+### [Solving above problem by using setTimeout() asynchronous function](#Solving-above-problem-by-using-setTimeout()-asynchronous-function)
 ```javascript
 const processOrder = (customer) => {
     console.log(`Processing order for customer 1`);
@@ -106,7 +106,7 @@ Here's the sequence of events:
 
 This demonstrates how JavaScript's asynchronous behavior and the event loop allow non-blocking execution of code, like the delayed callback in `setTimeout.
 
-### [Callback Function:](#Callback_Function) 
+### [Callback Function](#Callback-Function)
 But for above solution there is a problem of workflow control. We can control the workflow of code by implementation of callback function.
 
 ```javascript
@@ -284,7 +284,7 @@ Meeting already scheduled!!
 ```
 We don't assign any delay to the 'promise' but first `Hello` is printed! Then the promise will be executed. 
 
-### [Promise Chain:](#Promise_Chain) 
+### [Promise Chain](#Promise-Chain)
 ```javascript
 const hasMeeting = false;
 const meeting = new Promise((resolve, reject) => {
