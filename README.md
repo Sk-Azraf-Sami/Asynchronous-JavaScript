@@ -1,8 +1,11 @@
 # Asynchronous-JavaScript
 
+## Table of Contents
+- [Example of Synchronous behaviour](#example)
+
 Javascript is a single thread language. It has synchronous blocking behaviour which makes it as a ugly language. But nowadays it becomes updated and now it has asynchronous behaviour. 
 
-### Example of Synchronous behaviour: 
+### [Example of Synchronous behaviour:]#example)
 ```javascript
 const processOrder = (customer) => {
     console.log(`Processing order for customer 1`);
