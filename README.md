@@ -4,8 +4,8 @@
 - [Example of Synchronous behaviour](#Example_of_Synchronous_behaviour)
 - [Solving above problem by using setTimeout() asynchronous function:](#Solving_above_problem_by_using_setTimeout()_asynchronous_function)
 - [Callback Function](#Callback_Function)
-- [Promises:](#Promises) 
-- [Promise Chain:](#Promise_Chain)
+- [Promises](#Promises) 
+- [Promise Chain](#Promise_Chain)
 - [async-await](#async-await) 
 
 Javascript is a single thread language. It has synchronous blocking behaviour which makes it as a ugly language. But nowadays it becomes updated and now it has asynchronous behaviour. 
