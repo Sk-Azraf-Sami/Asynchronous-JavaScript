@@ -2,6 +2,11 @@
 
 ## Table of Contents
 - [Example of Synchronous behaviour](#Example_of_Synchronous_behaviour)
+- [Solving above problem by using setTimeout() asynchronous function:](#Solving_above_problem_by_using_setTimeout()_asynchronous_function)
+- [Callback Function:](#Callback_Function)
+- [Promises:](#Promises) 
+- [Promise Chain:](#Promise_Chain)
+- [async-await](#async-await) 
 
 Javascript is a single thread language. It has synchronous blocking behaviour which makes it as a ugly language. But nowadays it becomes updated and now it has asynchronous behaviour. 
 
@@ -30,7 +35,7 @@ Completed order for customer 1
 */
 ```
 
-### Solving above problem by using setTimeout() asynchronous function: 
+### [Solving above problem by using setTimeout() asynchronous function:](#Solving_above_problem_by_using_setTimeout()_asynchronous_function)
 ```javascript
 const processOrder = (customer) => {
     console.log(`Processing order for customer 1`);
@@ -101,7 +106,7 @@ Here's the sequence of events:
 
 This demonstrates how JavaScript's asynchronous behavior and the event loop allow non-blocking execution of code, like the delayed callback in `setTimeout.
 
-### Callback Function: 
+### [Callback Function:](#Callback_Function) 
 But for above solution there is a problem of workflow control. We can control the workflow of code by implementation of callback function.
 
 ```javascript
@@ -184,7 +189,7 @@ Order processed for customer 1
 Completed order for customer 1
 */
 ```
-### Promises: 
+### [Promises:](#Promises) 
 By using promise, callback function become more readable and we can solve the 'callback hell' problem.
 ```javascript
 const hasMeeting = false;
@@ -279,7 +284,7 @@ Meeting already scheduled!!
 ```
 We don't assign any delay to the 'promise' but first `Hello` is printed! Then the promise will be executed. 
 
-### Promise Chain: 
+### [Promise Chain:](#Promise_Chain) 
 ```javascript
 const hasMeeting = false;
 const meeting = new Promise((resolve, reject) => {
@@ -433,7 +438,7 @@ promise2 resolved
 
 But way of `promise` call is not so much programming friendly. 
 
-### async-await 
+### [async-await](#async-await) 
 
 ```javascript
 // this is synchronous function 
